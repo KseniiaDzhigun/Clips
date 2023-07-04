@@ -13,8 +13,6 @@ export class RegisterComponent {
     private auth: AuthService
   ) { }
 
-  inSubmission = false
-
   name = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
@@ -53,6 +51,7 @@ export class RegisterComponent {
   showAlert = false
   alertMsg = 'Please wait! Your account is being created.'
   alertColor = 'blue'
+  inSubmission = false
 
   async register() {
     this.inSubmission = true
@@ -67,7 +66,6 @@ export class RegisterComponent {
 
       this.alertMsg = 'An unexpected error occured. Please try again later!'
       this.alertColor = 'red'
-
       this.inSubmission = false
 
       return
